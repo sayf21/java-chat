@@ -51,15 +51,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/users/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/chat").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
-                .anyRequest().permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .usernameParameter("login")
-                .defaultSuccessUrl("/chat")
-                .permitAll()
-                .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/home");
     }
 }
 
