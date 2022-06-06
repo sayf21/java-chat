@@ -19,6 +19,9 @@ public class Message {
     @Column
     private String text;
 
+    @Column
+    private String TEEEEEEEEEEEEEEEST;
+
     @Column(nullable = false)
     private LocalDateTime sendingTime;
 
